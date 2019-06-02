@@ -91,14 +91,18 @@ CXXINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_SRC)/utils
 ################################################################################
 # Global flags
 ################################################################################
-CONFIG_FLAGS 	+= -D _LIBCPP_BUILDING_LIBRARY  -D LIBCXX_BUILDING_LIBCXXABI 	\
-		-D _LIBCPPABI_VERSION -D __x86_64__ -D _LIBCPP_STD_VER=15 	\
+CONFIG_FLAGS 	+= -D LIBCXX_BUILDING_LIBCXXABI 	\
+		-D __x86_64__ -D _LIBCPP_STD_VER=15 	\
 		-D _LIBCPP_PROVIDES_DEFAULT_RUNE_TABLE -D __DYNAMIC_REENT__	\
 
 
 
 LIBCXX_CFLAGS-y    +=   $(CONFIG_FLAGS)
 LIBCXX_CXXFLAGS-y    +=   $(CONFIG_FLAGS)
+
+SUPPRESS_FLAGS += -Wno-unused-parameter
+LIBCXX_CFLAGS-y   += $(SUPPRESS_FLAGS)
+LIBCXX_CXXFLAGS-y += $(SUPPRESS_FLAGS)
 
 LIBCXX_SRCS-y += $(LIBCXX_BASE)/glue.c
 ################################################################################
