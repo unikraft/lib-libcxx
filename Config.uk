@@ -4,3 +4,9 @@ menuconfig LIBCXX
 	select LIBCXXABI
 	select LIBUNWIND
     default n
+
+if LIBCXX
+config CXX_THREADS
+    bool "Enable CXX threads support"
+    default n
+endif
