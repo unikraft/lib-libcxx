@@ -105,9 +105,9 @@ endif
 LIBCXX_CFLAGS-y    +=   $(CONFIG_FLAGS)
 LIBCXX_CXXFLAGS-y    +=   $(CONFIG_FLAGS)
 
-SUPPRESS_FLAGS += -Wno-unused-parameter
-LIBCXX_CFLAGS-y   += $(SUPPRESS_FLAGS)
-LIBCXX_CXXFLAGS-y += $(SUPPRESS_FLAGS)
+LIBCXX_SUPPRESS_FLAGS += -Wno-unused-parameter
+LIBCXX_CFLAGS-y   += $(LIBCXX_SUPPRESS_FLAGS)
+LIBCXX_CXXFLAGS-y += $(LIBCXX_SUPPRESS_FLAGS)
 
 LIBCXX_SRCS-y += $(LIBCXX_BASE)/glue.c
 ################################################################################
