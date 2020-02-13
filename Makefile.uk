@@ -103,7 +103,7 @@ endif
 LIBCXX_CFLAGS-y    +=   $(CONFIG_FLAGS)
 LIBCXX_CXXFLAGS-y    +=   $(CONFIG_FLAGS)
 
-LIBCXX_SUPPRESS_FLAGS += -Wno-unused-parameter
+LIBCXX_SUPPRESS_FLAGS += -Wno-unused-parameter -Wno-cpp -Wno-parentheses
 LIBCXX_CFLAGS-y   += $(LIBCXX_SUPPRESS_FLAGS)
 LIBCXX_CXXFLAGS-y += $(LIBCXX_SUPPRESS_FLAGS)
 
