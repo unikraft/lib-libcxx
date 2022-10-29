@@ -1,0 +1,26 @@
+From ba952bed536bce35464e5060bc563ff597fa6f3b Mon Sep 17 00:00:00 2001
+From: Stefan Jumarea <stefanjumarea02@gmail.com>
+Date: Sat, 29 Oct 2022 13:11:24 +0300
+Subject: [PATCH] Include the first `stddef.h` header file.
+
+Signed-off-by: Stefan Jumarea <stefanjumarea02@gmail.com>
+---
+ include/cstddef | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/cstddef b/include/cstddef
+index bd62d6db3..0baf2ad07 100644
+--- a/include/cstddef
++++ b/include/cstddef
+@@ -41,7 +41,7 @@ Types:
+ #endif
+ 
+ // Don't include our own <stddef.h>; we don't want to declare ::nullptr_t.
+-#include_next <stddef.h>
++#include <stddef.h>
+ #include <__nullptr>
+ 
+ _LIBCPP_BEGIN_NAMESPACE_STD
+-- 
+2.25.1
+
