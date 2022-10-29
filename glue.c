@@ -20,7 +20,9 @@
  */
 
 #include <nl_types.h>
+#include <uk/config.h>
 
+#ifndef CONFIG_LIBMUSL
 int catclose(nl_catd catalog)
 {
 	return 0;
@@ -36,5 +38,6 @@ char *catgets(nl_catd catalog, int set_number, int message_number,
 {
 	return 0;
 }
+#endif
 
 void *__dso_handle = (void *) &__dso_handle;
