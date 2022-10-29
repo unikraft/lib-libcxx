@@ -34,7 +34,13 @@
 extern "C" {
 #endif
 
+#include <uk/config.h>
+
+#ifdef CONFIG_LIBMUSL
+#include <features.h>
+#else
 #include <sys/features.h>
+#endif
 
 #ifdef __cplusplus
 }
