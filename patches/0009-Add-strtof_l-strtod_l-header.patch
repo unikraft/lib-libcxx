@@ -1,0 +1,23 @@
+From c924cd52b45e2ab32368ca011a8f51a3e561d088 Mon Sep 17 00:00:00 2001
+From: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+Date: Sun, 30 Oct 2022 20:00:39 +0200
+Subject: [PATCH] Add strtof_l, strtod_l header
+
+Signed-off-by: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+---
+diff --git a/include/locale b/include/locale
+index c9ec7c36f582..9068f88117a7 100644
+--- a/include/locale
++++ b/include/locale
+@@ -817,6 +817,8 @@ __num_get_unsigned_integral(const char* __a, const char* __a_end,
+     return 0;
+ }
+ 
++#include <__strtonum_fallback.h>
++
+ template <class _Tp>
+ _LIBCPP_INLINE_VISIBILITY
+ _Tp __do_strtod(const char* __a, char** __p2);
+-- 
+2.25.1
+
