@@ -89,6 +89,8 @@ CXXINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_SRC)/utils
 ifeq ($(CONFIG_LIBMUSL),y)
 CINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_SRC)/include/support/musl
 CXXINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_SRC)/include/support/musl
+CINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_SRC)/include/support/xlocale
+CXXINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_SRC)/include/support/xlocale
 endif
 
 ################################################################################
