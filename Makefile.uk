@@ -39,7 +39,7 @@ $(eval $(call addlib_s,libcxx,$(CONFIG_LIBCXX)))
 ################################################################################
 # Sources
 ################################################################################
-LIBCXX_VERSION=16.0.0
+LIBCXX_VERSION=16.0.3
 LIBCXX_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$(LIBCXX_VERSION)/libcxx-$(LIBCXX_VERSION).src.tar.xz
 LIBCXX_PATCHDIR=$(LIBCXX_BASE)/patches
 $(eval $(call fetch,libcxx,$(LIBCXX_URL)))
