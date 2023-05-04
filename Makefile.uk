@@ -97,6 +97,10 @@ LIBCXX_CXXFLAGS-y  += $(LIBCXX_CONFIG_FLAGS) -std=c++2a
 LIBCXX_CFLAGS-y   += $(LIBCXX_SUPPRESS_FLAGS)
 LIBCXX_CXXFLAGS-y += $(LIBCXX_SUPPRESS_FLAGS)
 
+# GCC, at the time of writing (v13), does not support including builtin type
+# traits in a function signature, something libcxx relies on; force fallback
+LIBCXX_CXXFLAGS-$(call have_gcc) += -DUK_BUILD_CXX_NO_TRAIT_SIGS
+
 LIBCXX_SRCS-y += $(LIBCXX_BASE)/glue.c
 
 ################################################################################

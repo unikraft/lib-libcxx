@@ -1,0 +1,26 @@
+diff --git a/libcxx/include/__type_traits/remove_cv.h b/libcxx/include/__type_traits/remove_cv.h
+index ea85e23b8..f3c14831b 100644
+--- a/include/__type_traits/remove_cv.h
++++ b/include/__type_traits/remove_cv.h
+@@ -19,7 +19,7 @@
+ 
+ _LIBCPP_BEGIN_NAMESPACE_STD
+ 
+-#if __has_builtin(__remove_cv)
++#if __has_builtin(__remove_cv) && !defined(UK_BUILD_CXX_NO_TRAIT_SIGS)
+ template <class _Tp>
+ struct remove_cv {
+   using type _LIBCPP_NODEBUG = __remove_cv(_Tp);
+diff --git a/libcxx/include/__type_traits/remove_cvref.h b/libcxx/include/__type_traits/remove_cvref.h
+index e96cc6523..4a2a4fe0f 100644
+--- a/include/__type_traits/remove_cvref.h
++++ b/include/__type_traits/remove_cvref.h
+@@ -20,7 +20,7 @@
+ 
+ _LIBCPP_BEGIN_NAMESPACE_STD
+ 
+-#if __has_builtin(__remove_cvref)
++#if __has_builtin(__remove_cvref) && !defined(UK_BUILD_CXX_NO_TRAIT_SIGS)
+ template <class _Tp>
+ using __remove_cvref_t _LIBCPP_NODEBUG = __remove_cvref(_Tp);
+ #else
