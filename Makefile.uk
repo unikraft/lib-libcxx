@@ -75,27 +75,28 @@ LIBCXX_CONFIG_FLAGS += -D__STDC_CONSTANT_MACROS
 LIBCXX_CONFIG_FLAGS += -D__STDC_FORMAT_MACROS
 LIBCXX_CONFIG_FLAGS += -D__STDC_LIMIT_MACROS
 
-LIBCXX_SUPPRESS_FLAGS += -Wno-attributes
-LIBCXX_SUPPRESS_FLAGS += -Wno-comment
-LIBCXX_SUPPRESS_FLAGS += -Wno-error
-LIBCXX_SUPPRESS_FLAGS += -Wno-literal-suffix
-LIBCXX_SUPPRESS_FLAGS += -Wno-long-long
-LIBCXX_SUPPRESS_FLAGS += -Wno-misleading-indentation
-LIBCXX_SUPPRESS_FLAGS += -Wno-missing-field-initializers
-LIBCXX_SUPPRESS_FLAGS += -Wno-unused-parameter
-LIBCXX_SUPPRESS_FLAGS += -Wno-parentheses
-LIBCXX_SUPPRESS_FLAGS += -Wno-deprecated-declarations
-LIBCXX_SUPPRESS_FLAGS += -Wno-alloc-size-larger-than
-LIBCXX_SUPPRESS_FLAGS += -Wno-maybe-uninitialized
-LIBCXX_SUPPRESS_FLAGS += -Wno-array-bounds
-LIBCXX_SUPPRESS_FLAGS += -Wno-cpp
-LIBCXX_SUPPRESS_FLAGS += -Wno-stringop-overflow
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-attributes
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-comment
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-error
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-long-long
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-misleading-indentation
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-missing-field-initializers
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-unused-parameter
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-parentheses
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-deprecated-declarations
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-array-bounds
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-cpp
+LIBCXX_SUPPRESS_FLAGS-$(call have_clang) += -Wno-user-defined-literals
+LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-literal-suffix
+LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-stringop-overflow
+LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-alloc-size-larger-than
+LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-maybe-uninitialized
 
 LIBCXX_CFLAGS-y    += $(LIBCXX_CONFIG_FLAGS)
 LIBCXX_CXXFLAGS-y  += $(LIBCXX_CONFIG_FLAGS) -std=c++2a
 
-LIBCXX_CFLAGS-y   += $(LIBCXX_SUPPRESS_FLAGS)
-LIBCXX_CXXFLAGS-y += $(LIBCXX_SUPPRESS_FLAGS)
+LIBCXX_CFLAGS-y   += $(LIBCXX_SUPPRESS_FLAGS-y)
+LIBCXX_CXXFLAGS-y += $(LIBCXX_SUPPRESS_FLAGS-y)
 
 LIBCXX_SRCS-y += $(LIBCXX_BASE)/glue.c
 ################################################################################
