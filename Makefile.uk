@@ -86,14 +86,17 @@ LIBCXX_SUPPRESS_FLAGS-y += -Wno-parentheses
 LIBCXX_SUPPRESS_FLAGS-y += -Wno-deprecated-declarations
 LIBCXX_SUPPRESS_FLAGS-y += -Wno-array-bounds
 LIBCXX_SUPPRESS_FLAGS-y += -Wno-cpp
+LIBCXX_SUPPRESS_FLAGS-y += -Wno-keyword-compat
 LIBCXX_SUPPRESS_FLAGS-$(call have_clang) += -Wno-user-defined-literals
-LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-literal-suffix
 LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-stringop-overflow
 LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-alloc-size-larger-than
 LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-maybe-uninitialized
+LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-unknown-pragmas
 
 LIBCXX_CFLAGS-y    += $(LIBCXX_CONFIG_FLAGS)
 LIBCXX_CXXFLAGS-y  += $(LIBCXX_CONFIG_FLAGS) -std=c++2a
+LIBCXX_CXXFLAGS-$(call have_gcc) += -Wno-literal-suffix
+LIBCXX_CXXFLAGS-$(call have_gcc) += -Wno-dangling-reference
 
 LIBCXX_CFLAGS-y   += $(LIBCXX_SUPPRESS_FLAGS-y)
 LIBCXX_CXXFLAGS-y += $(LIBCXX_SUPPRESS_FLAGS-y)
