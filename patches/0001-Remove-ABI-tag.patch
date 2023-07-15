@@ -1,0 +1,50 @@
+From 316e4eee534e9474e34f928d5451032556377853 Mon Sep 17 00:00:00 2001
+From: Mamta Shukla <mamtashukla555@gmail.com>
+Date: Sun, 6 Aug 2023 22:49:45 +0200
+Subject: [PATCH] Remove ABI tag
+
+Signed-off-by: Mamta Shukla <mamtashukla555@gmail.com>
+---
+ include/__support/musl/xlocale.h | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/include/__support/musl/xlocale.h b/include/__support/musl/xlocale.h
+index f564c87..97b4876 100644
+--- a/include/__support/musl/xlocale.h
++++ b/include/__support/musl/xlocale.h
+@@ -24,27 +24,27 @@
+ extern "C" {
+ #endif
+ 
+-inline _LIBCPP_HIDE_FROM_ABI long long
++inline long long
+ strtoll_l(const char *__nptr, char **__endptr, int __base, locale_t) {
+   return ::strtoll(__nptr, __endptr, __base);
+ }
+ 
+-inline _LIBCPP_HIDE_FROM_ABI unsigned long long
++inline unsigned long long
+ strtoull_l(const char *__nptr, char **__endptr, int __base, locale_t) {
+   return ::strtoull(__nptr, __endptr, __base);
+ }
+ 
+-inline _LIBCPP_HIDE_FROM_ABI long long
++inline long long
+ wcstoll_l(const wchar_t *__nptr, wchar_t **__endptr, int __base, locale_t) {
+   return ::wcstoll(__nptr, __endptr, __base);
+ }
+ 
+-inline _LIBCPP_HIDE_FROM_ABI long long
++inline long long
+ wcstoull_l(const wchar_t *__nptr, wchar_t **__endptr, int __base, locale_t) {
+   return ::wcstoull(__nptr, __endptr, __base);
+ }
+ 
+-inline _LIBCPP_HIDE_FROM_ABI long double
++inline long double
+ wcstold_l(const wchar_t *__nptr, wchar_t **__endptr, locale_t) {
+   return ::wcstold(__nptr, __endptr);
+ }
+-- 
+2.25.1
+
