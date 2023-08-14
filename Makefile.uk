@@ -39,6 +39,14 @@
 ################################################################################
 $(eval $(call addlib_s,libcxx,$(CONFIG_LIBCXX)))
 
+ifeq ($(CONFIG_LIBCXX),y)
+ifeq ($(call have_gcc),y)
+$(call error_if_gcc_version_lt,11,0)
+else ifeq ($(call have_clang),y)
+$(call error_if_clang_version_lt,10,0)
+endif
+endif
+
 ################################################################################
 # Sources
 ################################################################################
