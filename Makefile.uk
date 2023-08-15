@@ -102,7 +102,7 @@ LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-maybe-uninitialized
 LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-unknown-pragmas
 
 LIBCXX_CFLAGS-y    += $(LIBCXX_CONFIG_FLAGS)
-LIBCXX_CXXFLAGS-y  += $(LIBCXX_CONFIG_FLAGS) -std=c++2a
+LIBCXX_CXXFLAGS-y  += $(LIBCXX_CONFIG_FLAGS) -std=c++2a -fpermissive
 LIBCXX_CXXFLAGS-$(call have_gcc) += -Wno-literal-suffix
 LIBCXX_CXXFLAGS-$(call have_gcc) += -Wno-dangling-reference
 
