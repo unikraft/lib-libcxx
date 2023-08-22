@@ -72,6 +72,9 @@ CXXINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_BASE)/include
 CXXINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_SRC)/src
 CXXINCLUDES-$(CONFIG_LIBCXX) += -I$(LIBCXX_SRC)/include
 
+# include/locale uses _GNU_SOURCE extensions from stdlib.h
+CXXFLAGS-$(CONFIG_LIBCXX) += -D_GNU_SOURCE
+
 ################################################################################
 # Global flags
 ################################################################################
