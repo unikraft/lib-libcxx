@@ -50,7 +50,7 @@ endif
 ################################################################################
 # Sources
 ################################################################################
-LIBCXX_VERSION=14.0.6
+LIBCXX_VERSION=15.0.0
 LIBCXX_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$(LIBCXX_VERSION)/libcxx-$(LIBCXX_VERSION).src.tar.xz
 LIBCXX_PATCHDIR=$(LIBCXX_BASE)/patches
 $(eval $(call fetch,libcxx,$(LIBCXX_URL)))
@@ -105,7 +105,7 @@ LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-maybe-uninitialized
 LIBCXX_SUPPRESS_FLAGS-$(call have_gcc) += -Wno-unknown-pragmas
 
 LIBCXX_CFLAGS-y    += $(LIBCXX_CONFIG_FLAGS)
-LIBCXX_CXXFLAGS-y  += $(LIBCXX_CONFIG_FLAGS) -std=c++2a
+LIBCXX_CXXFLAGS-y  += $(LIBCXX_CONFIG_FLAGS) -std=c++2a -fpermissive
 LIBCXX_CXXFLAGS-$(call have_gcc) += -Wno-literal-suffix
 LIBCXX_CXXFLAGS-$(call have_gcc) += -Wno-dangling-reference
 
